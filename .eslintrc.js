@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    "@jungsoft/eslint-config/react-native",
+    "@jungsoft/eslint-config/react",
     "plugin:@typescript-eslint/recommended",
   ],
   plugins: [
