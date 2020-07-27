@@ -40,7 +40,9 @@ module.exports = {
   },
   settings: {
     "import/resolver": {
-      typescript: {},
+      typescript: {
+        directory: ".",
+      },
     },
   },
 };

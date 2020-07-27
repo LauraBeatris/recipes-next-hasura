@@ -4,7 +4,7 @@ import { Global, css } from "@emotion/core";
 import { ColorModeProvider, CSSReset, ThemeProvider } from "@chakra-ui/core";
 import { DefaultSeo } from "next-seo";
 
-import seo from "../config/seo";
+import seo from "config/seo";
 
 const rootFullHeight = css`
   #__next {
