@@ -1,12 +1,7 @@
 import React from "react";
-import Head from 'next/head'
 
-const Home: React.FC = () => {
-  return (
-    <div className="container">
-
-    </div>
-  )
-};
+const Home: React.FC = () => (
+  <div className="container" />
+);
 
 export default Home;

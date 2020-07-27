@@ -19,7 +19,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
       <Global
         styles={rootFullHeight}
       />
-      <DefaultSeo {...seo}/>
+      <DefaultSeo {...seo} />
       <Component {...pageProps} />
     </ThemeProvider>
   </ColorModeProvider>
