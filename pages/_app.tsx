@@ -1,7 +1,12 @@
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 import { Global } from "@emotion/core";
-import { ColorModeProvider, CSSReset, ThemeProvider } from "@chakra-ui/core";
+import {
+  ColorModeProvider,
+  ThemeProvider as ChakraThemeProvider,
+  CSSReset,
+} from "@chakra-ui/core";
+import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
 import { DefaultSeo } from "next-seo";
 
 import seo from "config/seo";
@@ -10,14 +15,16 @@ import theme from "styles/theme";
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
   <ColorModeProvider value="dark">
-    <ThemeProvider theme={theme}>
-      <CSSReset />
-      <Global
-        styles={globalStyles}
-      />
-      <DefaultSeo {...seo} />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ChakraThemeProvider theme={theme}>
+      <EmotionThemeProvider theme={theme}>
+        <CSSReset />
+        <Global
+          styles={globalStyles}
+        />
+        <DefaultSeo {...seo} />
+        <Component {...pageProps} />
+      </EmotionThemeProvider>
+    </ChakraThemeProvider>
   </ColorModeProvider>
 );
 
