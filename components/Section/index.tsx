@@ -16,10 +16,10 @@ const Section: React.FC<SectionProps> = ({
     flexDirection="column"
     borderRadius={4}
     boxShadow="md"
+    marginTop={[0, 4]}
     maxWidth={400}
     height={["100%", 812]}
     marginX="auto"
-    marginTop={[0, 4]}
   >
     <Flex
       justifyContent="space-between"
@@ -38,7 +38,15 @@ const Section: React.FC<SectionProps> = ({
       {headerButton}
     </Flex>
 
-    {children}
+    <Flex
+      direction="column"
+      overflow="auto"
+      flexGrow={1}
+      paddingY={8}
+      paddingX={6}
+    >
+      {children}
+    </Flex>
   </Flex>
 );
 
