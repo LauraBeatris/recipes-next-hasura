@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const LIST_RECIPES_QUERY = gql`
   query listRecipes {
-    recipes_recipes {
+    recipes: recipes_recipes {
       id
       image_url
       ingredients
