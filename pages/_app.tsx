@@ -4,6 +4,7 @@ import { DefaultSeo } from "next-seo";
 
 import ThemeContainer from "contexts/theme/ThemeContainer";
 import seo from "config/seo";
+import { withApollo } from "config/apollo";
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
   <ThemeContainer>
@@ -12,4 +13,4 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
   </ThemeContainer>
 );
 
-export default App;
+export default withApollo({ ssr: true })(App);
