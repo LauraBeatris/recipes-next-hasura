@@ -1,5 +1,9 @@
 import Document, {
-  Html, Head, Main, NextScript, DocumentProps,
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentProps,
 } from "next/document";
 
 class MyDocument extends Document<DocumentProps> {
