@@ -36,22 +36,18 @@ export const createApolloClient = (initialState = {}, ctx: NextPageContext) => {
   }
 
   const httpLink = new HttpLink({
-    uri: process.env.NEXT_PUBLIC_GRAPHQL_URL, // Server URL (must be absolute)
+    uri: process.env.API_URI,
     credentials: "same-origin",
     fetch,
     fetchOptions,
   });
 
-  const authLink = setContext((_request, { headers }) => {
-    const token = getToken(ctx?.req);
-
-    return {
-      headers: {
-        ...headers,
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    };
-  });
+  const authLink = setContext((_request, { headers }) => ({
+    headers: {
+      ...headers,
+      "hasura-collaborator-token": process.env.HASURA_TOKEN,
+    },
+  }));
 
   return new ApolloClient({
     connectToDevTools: Boolean(ctx),
