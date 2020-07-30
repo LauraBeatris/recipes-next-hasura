@@ -10,8 +10,8 @@ import { StyledTextArea } from "./styles";
 interface TextAreaProps {
   name: string;
   label: string;
-  placeholder: string;
   error?: string;
+  placeholder: string;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({

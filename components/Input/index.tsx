@@ -10,8 +10,8 @@ import { FormInput } from "./styles";
 interface InputProps {
   name: string;
   label: string;
-  placeholder: string;
   error?: string;
+  placeholder: string;
 }
 
 const Input: React.FC<InputProps> = ({
