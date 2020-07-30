@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery } from "@apollo/react-hooks";
 import Link from "next/link";
 import {
   Button,
@@ -8,6 +9,7 @@ import {
 } from "@chakra-ui/core";
 
 import Section from "components/Section";
+import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 
 const HeaderButton = (
   <Link href="/recipes/create">
@@ -23,89 +25,43 @@ const HeaderButton = (
   </Link>
 );
 
-const Home: React.FC = () => (
-  <Section title="Recipes" headerButton={HeaderButton}>
-    <Box
-      size="sm"
-      width="90%"
-      maxWidth={233}
-      marginX="auto"
-      height={220}
-      position="relative"
-      marginBottom={4}
-    >
-      <Image
-        borderRadius={6}
-        objectFit="cover"
-        marginX="auto"
-        height="100%"
-        width="100%"
-        src="https://img.estadao.com.br/thumbs/640/resources/jpg/8/9/1569458498298.jpg"
-        alt="Segun Adebayo"
-      />
-      <Badge
-        position="absolute"
-        bottom={2}
-        left={2}
-      >
-        BBQ Meatloaf
-      </Badge>
-    </Box>
+const Home: React.FC = () => {
+  const { data } = useQuery(LIST_RECIPES_QUERY);
 
-    <Box
-      size="sm"
-      width="90%"
-      maxWidth={233}
-      marginX="auto"
-      height={220}
-      position="relative"
-      marginBottom={4}
-    >
-      <Image
-        borderRadius={6}
-        objectFit="cover"
-        marginX="auto"
-        height="100%"
-        width="100%"
-        src="https://img.estadao.com.br/thumbs/640/resources/jpg/8/9/1569458498298.jpg"
-        alt="Segun Adebayo"
-      />
-      <Badge
-        position="absolute"
-        bottom={2}
-        left={2}
-      >
-        BBQ Meatloaf
-      </Badge>
-    </Box>
-
-    <Box
-      size="sm"
-      width="90%"
-      maxWidth={233}
-      marginX="auto"
-      height={220}
-      position="relative"
-      marginBottom={4}
-    >
-      <Image
-        borderRadius={6}
-        objectFit="cover"
-        marginX="auto"
-        height="100%"
-        width="100%"
-        src="https://img.estadao.com.br/thumbs/640/resources/jpg/8/9/1569458498298.jpg"
-        alt="Segun Adebayo"
-      />
-      <Badge
-        position="absolute"
-        bottom={2}
-        left={2}
-      >
-        BBQ Meatloaf
-      </Badge>
-    </Box>
-  </Section>
-);
+  return (
+    <Section title="Recipes" headerButton={HeaderButton}>
+      {
+        data?.recipes.map((recipe) => (
+          <Box
+            size="sm"
+            width="90%"
+            maxWidth={233}
+            marginX="auto"
+            height={220}
+            position="relative"
+            marginBottom={4}
+          >
+            <Image
+              borderRadius={6}
+              objectFit="cover"
+              marginX="auto"
+              height="100%"
+              width="100%"
+              src={recipe.image_url}
+              alt={recipe.name}
+            />
+            <Badge
+              position="absolute"
+              bottom={2}
+              left={2}
+            >
+              {recipe.name}
+            </Badge>
+          </Box>
+        ))
+      }
+    </Section>
+  );
+};
 
 export default Home;
