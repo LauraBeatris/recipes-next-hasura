@@ -13,4 +13,4 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
   </ThemeContainer>
 );
 
-export default withApollo({ ssr: true })(App);
+export default withApollo()(App);
