@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { IncomingMessage } from "http";
 import { NextPageContext } from "next";
 import { ApolloClient } from "apollo-client";
@@ -11,8 +13,6 @@ import cookie from "cookie";
  * Get the user token from cookie
  */
 export const getToken = (req?: IncomingMessage) => {
-  console.log(req ? req.headers.cookie ?? "" : document.cookie);
-
   const parsedCookie = cookie.parse(
     req ? req.headers.cookie ?? "" : document.cookie,
   );
@@ -36,7 +36,7 @@ export const createApolloClient = (initialState = {}, ctx: NextPageContext) => {
   }
 
   const httpLink = new HttpLink({
-    uri: process.env.API_URI,
+    uri: process.env.NEXT_PUBLIC_API_URI,
     credentials: "same-origin",
     fetch,
     fetchOptions,
@@ -45,7 +45,7 @@ export const createApolloClient = (initialState = {}, ctx: NextPageContext) => {
   const authLink = setContext((_request, { headers }) => ({
     headers: {
       ...headers,
-      "hasura-collaborator-token": process.env.HASURA_TOKEN,
+      "x-hasura-admin-secret": process.env.NEXT_PUBLIC_ADMIN_SECRET,
     },
   }));
 
