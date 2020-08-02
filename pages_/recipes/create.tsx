@@ -10,7 +10,7 @@ import { RecipeFormData } from "types/recipes";
 import { ROOT_PAGE_PATH } from "constants/routes";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import RecipeForm from "components/RecipeForm";
-import HeaderBackButton from "components/HeaderButton";
+import HeaderBackButton from "components/HeaderBackButton";
 
 const CreateRecipe: React.FC = () => {
   const [createRecipe] = useMutation(CREATE_RECIPE_MUTATION, {

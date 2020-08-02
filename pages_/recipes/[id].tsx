@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import Section from "components/Section";
 import RecipeForm from "components/RecipeForm";
-import HeaderBackButton from "components/HeaderButton";
+import HeaderBackButton from "components/HeaderBackButton";
 import { RecipeFormData } from "types/recipes";
 import GET_RECIPE_QUERY from "graphql/queries/getRecipe";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";

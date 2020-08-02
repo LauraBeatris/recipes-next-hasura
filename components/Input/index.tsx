@@ -29,13 +29,13 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({
     <FormInput
       {...rest}
       id={name}
+      ref={ref}
       name={name}
       color="gray.600"
       boxShadow="sm"
       borderColor="gray.300"
       placeholder={placeholder}
       focusBorderColor="gray.800"
-      ref={ref}
     />
 
     <FormErrorMessage>

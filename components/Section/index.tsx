@@ -7,8 +7,8 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({
-  children,
   title,
+  children,
   headerButton,
 }) => (
   <Flex

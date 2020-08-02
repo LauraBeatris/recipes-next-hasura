@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react";
 import { NextPageContext } from "next";
 import App from "next/app";

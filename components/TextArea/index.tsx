@@ -29,6 +29,7 @@ const TextArea: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaProp
     <StyledTextArea
       {...rest}
       id={name}
+      ref={ref}
       name={name}
       color="gray.600"
       resize="none"
@@ -36,7 +37,6 @@ const TextArea: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaProp
       borderColor="gray.300"
       placeholder={placeholder}
       focusBorderColor="gray.800"
-      ref={ref}
     />
 
     <FormErrorMessage>
