@@ -6,7 +6,7 @@ import { useToast } from "@chakra-ui/core";
 import CREATE_RECIPE_MUTATION from "graphql/mutations/createRecipe";
 import Section from "components/Section";
 import { RecipeFormData } from "types/recipes";
-import { ROOT_PAGE_PATH } from "constants/router";
+import { ROOT_PAGE_PATH } from "constants/routes";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import RecipeForm from "components/RecipeForm";
 import HeaderBackButton from "components/HeaderButton";
