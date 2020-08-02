@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import Link from "next/link";
+import Link from "next-translate/Link";
 import {
   Spinner,
   Button,
@@ -39,9 +39,10 @@ const HeaderButton: React.FC = () => {
 
 const Home: React.FC = () => {
   const { data } = useQuery(LIST_RECIPES_QUERY);
+  const { t } = useTranslation();
 
   return (
-    <Section title="Recipes" headerButton={<HeaderButton />}>
+    <Section title={t("common:home.title")} headerButton={<HeaderButton />}>
       {
         data?.recipes ? (
           data?.recipes.map((recipe) => (
