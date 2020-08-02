@@ -45,14 +45,23 @@ const Home: React.FC = () => {
           >
             <Image
               borderRadius={6}
+              placeholder="https://via.placeholder.com/500"
+              fallbackSrc="https://via.placeholder.com/500"
+              htmlHeight="500"
+              htmlWidth="500"
               objectFit="cover"
+              loading="eager"
               marginX="auto"
               height="100%"
               width="100%"
               src={recipe.imageUrl}
               alt={recipe.name}
             />
+
             <Badge
+              backgroundColor="white"
+              opacity={0.85}
+              color="gray.600"
               position="absolute"
               bottom={2}
               left={2}
