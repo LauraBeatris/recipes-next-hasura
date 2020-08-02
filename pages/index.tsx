@@ -10,9 +10,10 @@ import {
 
 import Section from "components/Section";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
+import { CREATE_RECIPE_PAGE_PATH } from "constants/router";
 
 const HeaderButton = (
-  <Link href="/recipes/create">
+  <Link href={CREATE_RECIPE_PAGE_PATH}>
     <Button
       leftIcon="small-add"
       outline={0}
@@ -33,6 +34,7 @@ const Home: React.FC = () => {
       {
         data?.recipes.map((recipe) => (
           <Box
+            key={recipe?.id}
             size="sm"
             width="90%"
             maxWidth={233}
@@ -47,7 +49,7 @@ const Home: React.FC = () => {
               marginX="auto"
               height="100%"
               width="100%"
-              src={recipe.image_url}
+              src={recipe.imageUrl}
               alt={recipe.name}
             />
             <Badge

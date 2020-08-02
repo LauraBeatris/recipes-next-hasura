@@ -4,11 +4,11 @@ const LIST_RECIPES_QUERY = gql`
   query listRecipes {
     recipes: recipes_recipes {
       id
-      image_url
+      name
+      imageUrl
+      recipeUrl
       ingredients
       instructions
-      name
-      recipe_url
     }
   }
 `;

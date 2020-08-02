@@ -3,7 +3,7 @@ import {
   FormControl,
   FormLabel,
 } from "@chakra-ui/core";
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { StyledTextArea } from "./styles";
 
@@ -14,14 +14,14 @@ interface TextAreaProps {
   placeholder: string;
 }
 
-const TextArea: React.FC<TextAreaProps> = ({
+const TextArea: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaProps> = ({
   name,
   label,
   placeholder,
   error,
   ...rest
-}) => (
-  <FormControl my={4}>
+}, ref) => (
+  <FormControl my={4} isInvalid={!!error}>
     <FormLabel color="gray.900" htmlFor={name}>
       {label}
     </FormLabel>
@@ -29,12 +29,14 @@ const TextArea: React.FC<TextAreaProps> = ({
     <StyledTextArea
       {...rest}
       id={name}
+      name={name}
       color="gray.600"
       resize="none"
       boxShadow="sm"
       borderColor="gray.300"
       placeholder={placeholder}
       focusBorderColor="gray.800"
+      ref={ref}
     />
 
     <FormErrorMessage>
@@ -43,4 +45,4 @@ const TextArea: React.FC<TextAreaProps> = ({
   </FormControl>
 );
 
-export default TextArea;
+export default forwardRef(TextArea);

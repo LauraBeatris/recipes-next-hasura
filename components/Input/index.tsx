@@ -3,7 +3,7 @@ import {
   FormControl,
   FormLabel,
 } from "@chakra-ui/core";
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { FormInput } from "./styles";
 
@@ -14,13 +14,13 @@ interface InputProps {
   placeholder: string;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({
   name,
   label,
   placeholder,
   error,
   ...rest
-}) => (
+}, ref) => (
   <FormControl my={2} isInvalid={!!error}>
     <FormLabel color="gray.900" htmlFor={name}>
       {label}
@@ -29,11 +29,13 @@ const Input: React.FC<InputProps> = ({
     <FormInput
       {...rest}
       id={name}
+      name={name}
       color="gray.600"
       boxShadow="sm"
       borderColor="gray.300"
       placeholder={placeholder}
       focusBorderColor="gray.800"
+      ref={ref}
     />
 
     <FormErrorMessage>
@@ -42,4 +44,4 @@ const Input: React.FC<InputProps> = ({
   </FormControl>
 );
 
-export default Input;
+export default forwardRef(Input);

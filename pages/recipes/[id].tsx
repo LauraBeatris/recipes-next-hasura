@@ -1,12 +1,7 @@
 import React from "react";
-import Head from 'next/head'
 
-const Recipe: React.FC = () => {
-  return (
-    <div className="container">
-
-    </div>
-  )
-};
+const Recipe: React.FC = () => (
+  <div className="container" />
+);
 
 export default Recipe;
