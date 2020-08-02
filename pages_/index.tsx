@@ -7,31 +7,36 @@ import {
   Image,
   Badge,
 } from "@chakra-ui/core";
+import useTranslation from "next-translate/useTranslation";
 
 import Section from "components/Section";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import { CREATE_RECIPE_PAGE_PATH } from "constants/routes";
 import { UPDATE_RECIPE_LOCATION } from "constants/locations";
 
-const HeaderButton = (
-  <Link href={CREATE_RECIPE_PAGE_PATH}>
-    <Button
-      leftIcon="small-add"
-      outline={0}
-      padding={0}
-      variant="ghost"
-      color="blue.400"
-    >
-      Add
-    </Button>
-  </Link>
-);
+const HeaderButton: React.FC = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Link href={CREATE_RECIPE_PAGE_PATH}>
+      <Button
+        leftIcon="small-add"
+        outline={0}
+        padding={0}
+        variant="ghost"
+        color="blue.400"
+      >
+        {t("common:buttons.add")}
+      </Button>
+    </Link>
+  );
+};
 
 const Home: React.FC = () => {
   const { data } = useQuery(LIST_RECIPES_QUERY);
 
   return (
-    <Section title="Recipes" headerButton={HeaderButton}>
+    <Section title="Recipes" headerButton={<HeaderButton />}>
       {
         data?.recipes.map((recipe) => (
           <Link

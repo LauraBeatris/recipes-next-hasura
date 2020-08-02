@@ -1,0 +1,27 @@
+{
+  "home": {
+    "title": "Recipes"
+  },
+  "create_recipe": {
+    "title": "Create Recipe"
+  },
+  "update_recipe": {
+    "title": "Update Recipe"
+  },
+  "form": {
+    "name": "Name",
+    "image_url": "Image URL",
+    "recipe_url": "Recipe URL",
+    "ingredients": "Ingredients",
+    "instructions": "Instructions"
+  },
+  "buttons": {
+    "add": "Add",
+    "back": "Back",
+    "save": "Save"
+  },
+  "toasts": {
+    "something_went_wrong_while_creating_a_recipe": "Something went wrong while creating a recipe",
+    "recipe_successfully_created": "Recipe successfully created"
+  }
+}
