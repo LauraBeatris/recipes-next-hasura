@@ -3,6 +3,7 @@ import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
 import { useToast, Spinner, Flex } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
+import Router from "next-translate/Router";
 
 import Section from "components/Section";
 import RecipeForm from "components/RecipeForm";
@@ -31,7 +32,6 @@ const UpdateRecipe: React.FC = () => {
   });
 
   const toast = useToast();
-  const router = useRouter();
   const { t } = useTranslation();
 
   const onSubmit = useCallback((recipeData: RecipeFormData): void => {
@@ -51,7 +51,7 @@ const UpdateRecipe: React.FC = () => {
           isClosable: true,
         });
 
-        router.push(ROOT_PAGE_PATH);
+        Router.pushI18n(ROOT_PAGE_PATH);
       })
       .catch(() => {
         toast({
@@ -64,7 +64,6 @@ const UpdateRecipe: React.FC = () => {
   }, [
     t,
     toast,
-    router,
     query.id,
     updateRecipe,
   ]);

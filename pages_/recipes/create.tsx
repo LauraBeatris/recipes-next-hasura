@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { useRouter } from "next/router";
 import { useToast } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
+import Router from "next-translate/Router";
 
 import CREATE_RECIPE_MUTATION from "graphql/mutations/createRecipe";
 import Section from "components/Section";
@@ -22,7 +22,6 @@ const CreateRecipe: React.FC = () => {
   });
 
   const toast = useToast();
-  const router = useRouter();
   const { t } = useTranslation();
 
   const onSubmit = useCallback(((recipeData: RecipeFormData): void => {
@@ -39,7 +38,7 @@ const CreateRecipe: React.FC = () => {
           isClosable: true,
         });
 
-        router.push(ROOT_PAGE_PATH);
+        Router.push(ROOT_PAGE_PATH);
       })
       .catch(() => {
         toast({
@@ -52,7 +51,6 @@ const CreateRecipe: React.FC = () => {
   }), [
     t,
     toast,
-    router,
     createRecipe,
   ]);
 
