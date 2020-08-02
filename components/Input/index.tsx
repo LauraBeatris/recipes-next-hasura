@@ -1,5 +1,6 @@
 import {
   FormErrorMessage,
+  useColorMode,
   FormControl,
   FormLabel,
 } from "@chakra-ui/core";
@@ -20,28 +21,34 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({
   placeholder,
   error,
   ...rest
-}, ref) => (
-  <FormControl my={2} isInvalid={!!error}>
-    <FormLabel color="gray.900" htmlFor={name}>
-      {label}
-    </FormLabel>
+}, ref) => {
+  const { colorMode } = useColorMode();
 
-    <FormInput
-      {...rest}
-      id={name}
-      ref={ref}
-      name={name}
-      color="gray.600"
-      boxShadow="sm"
-      borderColor="gray.300"
-      placeholder={placeholder}
-      focusBorderColor="gray.800"
-    />
+  const labelColor = { light: "white", dark: "gray.900" };
 
-    <FormErrorMessage>
-      {error}
-    </FormErrorMessage>
-  </FormControl>
-);
+  return (
+    <FormControl my={2} isInvalid={!!error}>
+      <FormLabel color={labelColor[colorMode]} htmlFor={name}>
+        {label}
+      </FormLabel>
+
+      <FormInput
+        {...rest}
+        id={name}
+        ref={ref}
+        name={name}
+        color="gray.600"
+        boxShadow="sm"
+        borderColor="gray.300"
+        placeholder={placeholder}
+        focusBorderColor="gray.800"
+      />
+
+      <FormErrorMessage>
+        {error}
+      </FormErrorMessage>
+    </FormControl>
+  );
+};
 
 export default forwardRef(Input);

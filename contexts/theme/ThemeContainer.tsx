@@ -11,8 +11,8 @@ import globalStyles from "styles/global";
 import theme from "styles/theme";
 
 const ThemeContainer: React.FC = ({ children }) => (
-  <ColorModeProvider value="dark">
-    <ChakraThemeProvider theme={theme}>
+  <ChakraThemeProvider theme={theme}>
+    <ColorModeProvider value="dark">
       <EmotionThemeProvider theme={theme}>
         <CSSReset />
         <Global
@@ -20,8 +20,8 @@ const ThemeContainer: React.FC = ({ children }) => (
         />
         {children}
       </EmotionThemeProvider>
-    </ChakraThemeProvider>
-  </ColorModeProvider>
+    </ColorModeProvider>
+  </ChakraThemeProvider>
 );
 
 export default ThemeContainer;

@@ -11,11 +11,14 @@ const HeaderBackButton: React.FC = () => {
   return (
     <Link href={ROOT_PAGE_PATH}>
       <Button
-        leftIcon="chevron-left"
-        padding={0}
-        variant="ghost"
-        outline={0}
         color="blue.400"
+        padding={0}
+        outline={0}
+        display="flex"
+        variant="unstyled"
+        leftIcon="chevron-left"
+        alignItems="center"
+        justifyContent="center"
       >
         {t("common:buttons.back")}
       </Button>

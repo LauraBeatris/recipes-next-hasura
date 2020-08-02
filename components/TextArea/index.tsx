@@ -1,5 +1,6 @@
 import {
   FormErrorMessage,
+  useColorMode,
   FormControl,
   FormLabel,
 } from "@chakra-ui/core";
@@ -20,29 +21,35 @@ const TextArea: React.ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaProp
   placeholder,
   error,
   ...rest
-}, ref) => (
-  <FormControl my={4} isInvalid={!!error}>
-    <FormLabel color="gray.900" htmlFor={name}>
-      {label}
-    </FormLabel>
+}, ref) => {
+  const { colorMode } = useColorMode();
 
-    <StyledTextArea
-      {...rest}
-      id={name}
-      ref={ref}
-      name={name}
-      color="gray.600"
-      resize="none"
-      boxShadow="sm"
-      borderColor="gray.300"
-      placeholder={placeholder}
-      focusBorderColor="gray.800"
-    />
+  const labelColor = { light: "white", dark: "gray.900" };
 
-    <FormErrorMessage>
-      {error}
-    </FormErrorMessage>
-  </FormControl>
-);
+  return (
+    <FormControl my={4} isInvalid={!!error}>
+      <FormLabel color={labelColor[colorMode]} htmlFor={name}>
+        {label}
+      </FormLabel>
+
+      <StyledTextArea
+        {...rest}
+        id={name}
+        ref={ref}
+        name={name}
+        color="gray.600"
+        resize="none"
+        boxShadow="sm"
+        borderColor="gray.300"
+        placeholder={placeholder}
+        focusBorderColor="gray.800"
+      />
+
+      <FormErrorMessage>
+        {error}
+      </FormErrorMessage>
+    </FormControl>
+  );
+};
 
 export default forwardRef(TextArea);

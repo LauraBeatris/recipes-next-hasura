@@ -20,11 +20,14 @@ const HeaderButton: React.FC = () => {
   return (
     <Link href={CREATE_RECIPE_PAGE_PATH}>
       <Button
-        leftIcon="small-add"
+        color="blue.400"
+        display="flex"
         outline={0}
         padding={0}
-        variant="ghost"
-        color="blue.400"
+        variant="unstyled"
+        leftIcon="small-add"
+        alignItems="center"
+        justifyContent="center"
       >
         {t("common:buttons.add")}
       </Button>
