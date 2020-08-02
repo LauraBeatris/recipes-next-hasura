@@ -21,7 +21,7 @@
     "save": "Salvar"
   },
   "toasts": {
-    "something_went_wrong_while_creating_a_recipe": "Algo de errado aconteceu ao criar uma recipe",
-    "recipe_successfully_created": "Receita criado com sucesso"
+    "something_went_wrong_while_creating_a_recipe": "Algo de errado aconteceu ao criar uma receita",
+    "recipe_successfully_created": "Receita criada com sucesso"
   }
 }
