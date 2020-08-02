@@ -7,7 +7,7 @@ const SEO = {
     description: "Explore the best recipes.",
     images: [
       {
-        url: "recipes-next-hasura.vercel.app",
+        url: "https://github.com/LauraBeatris/recipes-next-hasura/blob/master/.github/docs/logo.png",
         width: 1200,
         height: 630,
         alt: "Recipes | Explore the best recipes",
