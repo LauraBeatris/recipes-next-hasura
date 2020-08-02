@@ -13,7 +13,7 @@
     "image_url": "URL da Imagem",
     "recipe_url": "URL da Receita",
     "ingredients": "Ingredientes",
-    "instructions": "Instruções",
+    "instructions": "Instruções"
   },
   "buttons": {
     "add": "Adicionar",
