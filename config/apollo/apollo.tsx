@@ -4,8 +4,7 @@ import React from "react";
 import { NextPageContext } from "next";
 import App from "next/app";
 import Head from "next/head";
-import ApolloClient from "apollo-client";
-import { NormalizedCacheObject } from "apollo-cache-inmemory";
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import { createApolloClient } from "./createApolloClient";
