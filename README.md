@@ -65,8 +65,6 @@ Run the following command in order to start the application in a development env
 **Answer:** The tecnologies used in this project are [NextJS](https://nextjs.org/), [Hasura](https://hasura.io/) to retrieve recipes data via a GraphQL API and [Chakra UI](https://chakra-ui.com/) to develop modular and accessible styled components.
 
 
-Use them as the values of the env variables that you want to map inside of the build configuration.
-
 # :bug: Issues
 
 Feel free to **file a new issue** with a respective title and description on the the [Recipes Next Hasura](https://github.com/LauraBeatris/recipes-next-hasura/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/LauraBeatris/recipes-next-hasura/blob/master/CONTRIBUTING.md) to find out about the coding standards.
