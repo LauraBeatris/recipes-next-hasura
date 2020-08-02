@@ -2,10 +2,12 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import Link from "next/link";
 import {
+  Spinner,
   Button,
-  Box,
   Image,
   Badge,
+  Flex,
+  Box,
 } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
 
@@ -41,49 +43,60 @@ const Home: React.FC = () => {
   return (
     <Section title="Recipes" headerButton={<HeaderButton />}>
       {
-        data?.recipes.map((recipe) => (
-          <Link
-            href={UPDATE_RECIPE_LOCATION.toUrl({ id: recipe.id })}
-            key={recipe?.id}
-          >
-            <Box
-              size="sm"
-              width="90%"
-              cursor="pointer"
-              marginX="auto"
-              height={220}
-              maxWidth={233}
-              position="relative"
-              marginBottom={4}
+        data?.recipes ? (
+          data?.recipes.map((recipe) => (
+            <Link
+              href={UPDATE_RECIPE_LOCATION.toUrl({ id: recipe.id })}
+              key={recipe?.id}
             >
-              <Image
-                borderRadius={6}
-                placeholder="https://via.placeholder.com/500"
-                fallbackSrc="https://via.placeholder.com/500"
-                htmlHeight="500"
-                htmlWidth="500"
-                objectFit="cover"
-                loading="eager"
+              <Box
+                size="sm"
+                width="90%"
+                cursor="pointer"
                 marginX="auto"
-                height="100%"
-                width="100%"
-                src={recipe.image_url}
-                alt={recipe.name}
-              />
-
-              <Badge
-                backgroundColor="white"
-                opacity={0.85}
-                color="gray.600"
-                position="absolute"
-                bottom={2}
-                left={2}
+                height={220}
+                maxWidth={233}
+                position="relative"
+                marginBottom={4}
               >
-                {recipe.name}
-              </Badge>
-            </Box>
-          </Link>
-        ))
+                <Image
+                  borderRadius={6}
+                  placeholder="https://via.placeholder.com/500"
+                  fallbackSrc="https://via.placeholder.com/500"
+                  htmlHeight="500"
+                  htmlWidth="500"
+                  objectFit="cover"
+                  loading="eager"
+                  marginX="auto"
+                  height="100%"
+                  width="100%"
+                  src={recipe.image_url}
+                  alt={recipe.name}
+                />
+
+                <Badge
+                  backgroundColor="white"
+                  opacity={0.85}
+                  color="gray.600"
+                  position="absolute"
+                  bottom={2}
+                  left={2}
+                >
+                  {recipe.name}
+                </Badge>
+              </Box>
+            </Link>
+          ))
+        ) : (
+          <Flex
+            width="100%"
+            justify="center"
+            align="center"
+            marginTop={40}
+          >
+            <Spinner color="blue.500" />
+          </Flex>
+        )
       }
     </Section>
   );
