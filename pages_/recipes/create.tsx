@@ -57,7 +57,10 @@ const CreateRecipe: React.FC = () => {
   ]);
 
   return (
-    <Section title={t("common:create_recipe.title")} headerButton={<HeaderBackButton />}>
+    <Section
+      title={t("common:create_recipe.title")}
+      headerButton={<HeaderBackButton />}
+    >
       <RecipeForm onSubmit={onSubmit} />
     </Section>
   );

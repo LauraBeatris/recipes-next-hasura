@@ -10,10 +10,10 @@ const HeaderBackButton: React.FC = () => {
     <Link href="/">
       <Button
         leftIcon="chevron-left"
-        outline={0}
         padding={0}
         variant="ghost"
         color="blue.400"
+        outline={0}
       >
         {t("common:buttons.back")}
       </Button>

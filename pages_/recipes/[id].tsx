@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
-import { useToast } from "@chakra-ui/core";
+import { useToast, Spinner, Flex } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
 
 import Section from "components/Section";
@@ -69,13 +69,25 @@ const UpdateRecipe: React.FC = () => {
     updateRecipe,
   ]);
 
-  if (!data?.recipe) {
-    return null;
-  }
-
   return (
-    <Section title={t("common:update_recipe.title")} headerButton={<HeaderBackButton />}>
-      <RecipeForm onSubmit={onSubmit} defaultValues={data?.recipe} />
+    <Section
+      title={t("common:update_recipe.title")}
+      headerButton={<HeaderBackButton />}
+    >
+      {
+        data?.recipe ? (
+          <RecipeForm onSubmit={onSubmit} defaultValues={data.recipe} />
+        ) : (
+          <Flex
+            width="100%"
+            justify="center"
+            align="center"
+            marginTop={40}
+          >
+            <Spinner color="blue.500" />
+          </Flex>
+        )
+      }
     </Section>
   );
 };

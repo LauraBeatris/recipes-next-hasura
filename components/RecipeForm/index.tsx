@@ -83,15 +83,16 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({
         justifyContent="center"
         alignItems="center"
         marginLeft="auto"
-        marginTop="auto"
+        marginTop={10}
         variant="unstyled"
         display="flex"
         width="20%"
         color="white"
         type="submit"
+        outline={0}
         isDisabled={!formState.isValid}
       >
-        Save
+        {t("common:buttons.save")}
       </Button>
     </form>
   );
