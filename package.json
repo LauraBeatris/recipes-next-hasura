@@ -19,6 +19,7 @@
     "apollo-client": "^2.6.10",
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
+    "app-location": "^1.1.1",
     "cookie": "^0.4.1",
     "emotion-theming": "^10.0.27",
     "graphql": "^15.3.0",
