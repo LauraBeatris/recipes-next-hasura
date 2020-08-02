@@ -15,6 +15,7 @@
 <br />
 <p align="center">
   <img align="center" width="300" src=".github/docs/color-mode.gif" alt="Color Mode" border="0">
+  &nbsp;&nbsp;&nbsp;
   <img align="center" width="300" src=".github/docs/update-recipe.gif" alt="Update Recipe" border="0">
 </p>
 
@@ -32,8 +33,9 @@
 
 # :rocket: Features
 
-* 🍕 Explore recipes
-* 🥐 Create and update recipes
+* 🍕&nbsp; Explore recipes
+* 🥐&nbsp; Create and update recipes
+* 🎨 Dark and light mode
 
 # :construction_worker: Installation
 
