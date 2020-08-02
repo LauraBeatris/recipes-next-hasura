@@ -13,17 +13,22 @@ import createRecipeSchema from "schemas/createRecipe";
 
 interface CreateRecipeForm {
   onSubmit: (recipeData: RecipeFormData) => void;
+  defaultValues?: RecipeFormData
 }
 
-const RecipeForm: React.FC<CreateRecipeForm> = ({ onSubmit }) => {
+const RecipeForm: React.FC<CreateRecipeForm> = ({
+  onSubmit,
+  defaultValues,
+}) => {
   const {
-    register,
-    handleSubmit,
     errors,
+    register,
     formState,
+    handleSubmit,
   } = useForm<RecipeFormData>({
     mode: "all",
     resolver: yupResolver(createRecipeSchema),
+    defaultValues,
   });
 
   return (
@@ -38,11 +43,11 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({ onSubmit }) => {
         />
 
         <Input
-          name="imageUrl"
+          name="image_url"
           label="Image URL"
           placeholder="https://www.budgetbads/2018/01231"
           ref={register}
-          error={errors?.imageUrl?.message}
+          error={errors?.image_url?.message}
         />
 
         <TextArea
@@ -62,11 +67,11 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({ onSubmit }) => {
         />
 
         <Input
-          name="recipeUrl"
+          name="recipe_url"
           label="Original Recipe URL"
           placeholder="www.tudogostoso/empadao-de-camarao"
           ref={register}
-          error={errors?.recipeUrl?.message}
+          error={errors?.recipe_url?.message}
         />
       </Stack>
 
