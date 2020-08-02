@@ -18,7 +18,7 @@ const Section: React.FC<SectionProps> = ({
     boxShadow="md"
     marginTop={[0, 4]}
     maxWidth={400}
-    height={["100%", 812]}
+    minHeight={["100vh", 812]}
     marginX="auto"
   >
     <Flex

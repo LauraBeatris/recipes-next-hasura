@@ -17,6 +17,7 @@ import TextArea from "components/TextArea";
 import { RecipeFormData } from "types/recipes";
 import { ROOT_PAGE_PATH } from "constants/router";
 import createRecipeSchema from "schemas/createRecipe";
+import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 
 const HeaderButton = (
   <Link href="/">
@@ -33,7 +34,13 @@ const HeaderButton = (
 );
 
 const CreateRecipe: React.FC = () => {
-  const [createRecipe] = useMutation(CREATE_RECIPE_MUTATION);
+  const [createRecipe] = useMutation(CREATE_RECIPE_MUTATION, {
+    refetchQueries: [
+      {
+        query: LIST_RECIPES_QUERY,
+      },
+    ],
+  });
 
   const {
     register,
