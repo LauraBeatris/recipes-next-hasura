@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import { useToast, Button } from "@chakra-ui/core";
+import { useToast } from "@chakra-ui/core";
 
 import CREATE_RECIPE_MUTATION from "graphql/mutations/createRecipe";
 import Section from "components/Section";
@@ -10,20 +9,7 @@ import { RecipeFormData } from "types/recipes";
 import { ROOT_PAGE_PATH } from "constants/router";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import RecipeForm from "components/RecipeForm";
-
-const HeaderButton = (
-  <Link href="/">
-    <Button
-      leftIcon="chevron-left"
-      outline={0}
-      padding={0}
-      variant="ghost"
-      color="blue.400"
-    >
-      Back
-    </Button>
-  </Link>
-);
+import HeaderBackButton from "components/HeaderButton";
 
 const CreateRecipe: React.FC = () => {
   const [createRecipe] = useMutation(CREATE_RECIPE_MUTATION, {
@@ -37,7 +23,7 @@ const CreateRecipe: React.FC = () => {
   const toast = useToast();
   const router = useRouter();
 
-  const onSubmit = ((recipeData: RecipeFormData): void => {
+  const onSubmit = useCallback(((recipeData: RecipeFormData): void => {
     createRecipe({
       variables: {
         recipeData,
@@ -61,10 +47,14 @@ const CreateRecipe: React.FC = () => {
           isClosable: true,
         });
       });
-  });
+  }), [
+    createRecipe,
+    router,
+    toast,
+  ]);
 
   return (
-    <Section title="Create Recipe" headerButton={HeaderButton}>
+    <Section title="Create Recipe" headerButton={<HeaderBackButton />}>
       <RecipeForm onSubmit={onSubmit} />
     </Section>
   );
