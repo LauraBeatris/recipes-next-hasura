@@ -35,7 +35,8 @@
 
 * 🍕&nbsp; Explore recipes
 * 🥐&nbsp; Create and update recipes
-* 🎨 Dark and light mode
+* 🎨&nbsp; Dark and light mode
+* 🌍&nbsp; Multi-Language support - [Portuguese](http://recipes-next-hasura.vercel.app/pt) and [English](http://recipes-next-hasura.vercel.app)
 
 # :construction_worker: Installation
 
