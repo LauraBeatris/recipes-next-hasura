@@ -1,10 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
-import {
-  Button,
-  Stack,
-} from "@chakra-ui/core";
+import { Button, Stack } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
 
 import Input from "components/Input";
