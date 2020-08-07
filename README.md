@@ -4,7 +4,7 @@
 
 # Recipes App with Hasura
 
-> A lightweight app made NextJS and Hasura to create and explore recipes
+> A lightweight app made with NextJS and Hasura to create and explore recipes
 
 [![Author](https://img.shields.io/badge/author-LauraBeatris-191F2B?style=flat-square)](https://github.com/LauraBeatris)
 [![Languages](https://img.shields.io/github/languages/count/LauraBeatris/recipes-next-hasura?color=%23191F2B&style=flat-square)](#)
@@ -63,7 +63,7 @@ Run the following command in order to start the application in a development env
 
 **Question:** What are the tecnologies used in this project?
 
-**Answer:** The tecnologies used in this project are [NextJS](https://nextjs.org/), [Hasura](https://hasura.io/) to retrieve recipes data via a GraphQL API and [Chakra UI](https://chakra-ui.com/) to develop modular and accessible styled components.
+**Answer:** The tecnologies used in this project are [NextJS](https://nextjs.org/), [Hasura](https://hasura.io/) to retrieve recipes data via a GraphQL API and [Chakra UI](https://chakra-ui.com/) to implement modular and accessible styled components.
 
 
 # :bug: Issues
