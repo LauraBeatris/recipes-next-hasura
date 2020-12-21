@@ -1,12 +1,11 @@
-import { useQuery } from "@apollo/react-hooks";
 import Link from "next-translate/Link";
 import { Spinner, Button, Flex } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
 
-import Section from "components/Section";
-import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import { CREATE_RECIPE_PAGE_PATH } from "constants/routes";
+import Section from "components/Section";
 import Recipe from "components/Recipe";
+import useListRecipes from "hooks/useListRecipes";
 
 const HeaderButton: React.FC = () => {
   const { t } = useTranslation();
@@ -30,7 +29,7 @@ const HeaderButton: React.FC = () => {
 };
 
 const Home: React.FC = () => {
-  const { data } = useQuery(LIST_RECIPES_QUERY);
+  const { data, loading } = useListRecipes();
   const { t } = useTranslation();
 
   return (
@@ -39,8 +38,17 @@ const Home: React.FC = () => {
       headerButton={<HeaderButton />}
     >
       {
-        data?.recipes ? (
-          data?.recipes.map(({
+        loading ? (
+          <Flex
+            width="100%"
+            align="center"
+            justify="center"
+            marginTop={40}
+          >
+            <Spinner color="blue.500" />
+          </Flex>
+        ) : (
+          data.map(({
             id,
             name,
             image_url: imageUrl,
@@ -52,15 +60,6 @@ const Home: React.FC = () => {
               imageUrl={imageUrl}
             />
           ))
-        ) : (
-          <Flex
-            width="100%"
-            align="center"
-            justify="center"
-            marginTop={40}
-          >
-            <Spinner color="blue.500" />
-          </Flex>
         )
       }
     </Section>
