@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { useToast } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";

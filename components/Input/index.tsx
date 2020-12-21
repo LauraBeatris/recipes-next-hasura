@@ -1,10 +1,10 @@
+import { forwardRef } from "react";
 import {
   FormErrorMessage,
   useColorMode,
   FormControl,
   FormLabel,
 } from "@chakra-ui/core";
-import React, { forwardRef } from "react";
 
 import { FormInput } from "./styles";
 

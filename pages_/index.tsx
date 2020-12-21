@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import Link from "next-translate/Link";
 import { Spinner, Button, Flex } from "@chakra-ui/core";

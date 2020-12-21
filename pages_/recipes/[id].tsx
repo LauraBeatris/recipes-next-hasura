@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
 import { useToast, Spinner, Flex } from "@chakra-ui/core";

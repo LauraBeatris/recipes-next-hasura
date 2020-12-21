@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next-translate/Link";
 import { Button } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";

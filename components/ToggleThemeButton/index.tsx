@@ -1,4 +1,3 @@
-import React from "react";
 import { useColorMode, IconButton } from "@chakra-ui/core";
 
 const ToggleThemeButton: React.FC = () => {

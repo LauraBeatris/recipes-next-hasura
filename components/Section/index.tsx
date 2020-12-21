@@ -1,4 +1,3 @@
-import React from "react";
 import { Flex, Text, useColorMode } from "@chakra-ui/core";
 
 import ToggleThemeButton from "components/ToggleThemeButton";
