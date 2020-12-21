@@ -4,50 +4,47 @@ import { MutationHookOptions, useMutation } from "@apollo/react-hooks";
 import useTranslation from "next-translate/useTranslation";
 import Router from "next-translate/Router";
 
-import UPDATE_RECIPE_MUTATION from "graphql/mutations/updateRecipe";
+import CREATE_RECIPE_MUTATION from "graphql/mutations/createRecipe";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
-import { RecipeFormData } from "types/recipes";
 import { ROOT_PAGE_PATH } from "constants/routes";
+import { RecipeFormData } from "types/recipes";
 
-import { UseUpdateRecipePayload } from "./types";
+import { UseCreateRecipePayload } from "./types";
 
 /**
- * Hook that handles the mutation in order to update a recipe
+ * Hook that handles the mutation in order to create a recipe
  *
  * @param mutationOptions The options of useMutation hook
  */
-const useUpdateRecipe = (mutationOptions?: MutationHookOptions) => {
-  const [updateRecipe, updateFoodResults] = useMutation(UPDATE_RECIPE_MUTATION, {
-    ...mutationOptions,
+const useCreateRecipe = (mutationOptions?: MutationHookOptions) => {
+  const [createRecipe, createRecipeResult] = useMutation(CREATE_RECIPE_MUTATION, {
     refetchQueries: [
       {
         query: LIST_RECIPES_QUERY,
       },
     ],
+    ...mutationOptions,
   });
-
-  const { t } = useTranslation();
 
   const toast = useToast();
 
-  const handleUpdateRecipe = useCallback((recipeId, recipeData: RecipeFormData): void => {
-    updateRecipe({
+  const { t } = useTranslation();
+
+  const handleCreateRecipe = useCallback(((recipeData: RecipeFormData): void => {
+    createRecipe({
       variables: {
-        pk_columns: {
-          id: recipeId,
-        },
         recipeData,
       },
     })
       .then(() => {
         toast({
-          title: t("common:toasts.recipe_successfully_updated"),
+          title: t("common:toasts.recipe_successfully_created"),
           status: "success",
           duration: 1500,
           isClosable: true,
         });
 
-        Router.pushI18n(ROOT_PAGE_PATH);
+        Router.push(ROOT_PAGE_PATH);
       })
       .catch(() => {
         toast({
@@ -57,21 +54,21 @@ const useUpdateRecipe = (mutationOptions?: MutationHookOptions) => {
           isClosable: true,
         });
       });
-  }, [
+  }), [
     t,
     toast,
-    updateRecipe,
+    createRecipe,
   ]);
 
-  const payload = useMemo<UseUpdateRecipePayload>(() => [
-    handleUpdateRecipe,
-    updateFoodResults,
+  const payload = useMemo<UseCreateRecipePayload>(() => [
+    handleCreateRecipe,
+    createRecipeResult,
   ], [
-    handleUpdateRecipe,
-    updateFoodResults,
+    handleCreateRecipe,
+    createRecipeResult,
   ]);
 
   return payload;
 };
 
-export default useUpdateRecipe;
+export default useCreateRecipe;

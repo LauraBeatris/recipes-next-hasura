@@ -1,65 +1,24 @@
-import { useCallback } from "react";
-import { useMutation } from "@apollo/react-hooks";
-import { useToast } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
-import Router from "next-translate/Router";
 
-import CREATE_RECIPE_MUTATION from "graphql/mutations/createRecipe";
 import Section from "components/Section";
-import { RecipeFormData } from "types/recipes";
-import { ROOT_PAGE_PATH } from "constants/routes";
-import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import RecipeForm from "components/RecipeForm";
 import HeaderBackButton from "components/HeaderBackButton";
+import useCreateRecipe from "hooks/useCreateRecipe";
 
 const CreateRecipe: React.FC = () => {
-  const [createRecipe] = useMutation(CREATE_RECIPE_MUTATION, {
-    refetchQueries: [
-      {
-        query: LIST_RECIPES_QUERY,
-      },
-    ],
-  });
+  const [createRecipe, { loading }] = useCreateRecipe();
 
-  const toast = useToast();
   const { t } = useTranslation();
-
-  const onSubmit = useCallback(((recipeData: RecipeFormData): void => {
-    createRecipe({
-      variables: {
-        recipeData,
-      },
-    })
-      .then(() => {
-        toast({
-          title: t("common:toasts.recipe_successfully_created"),
-          status: "success",
-          duration: 1500,
-          isClosable: true,
-        });
-
-        Router.push(ROOT_PAGE_PATH);
-      })
-      .catch(() => {
-        toast({
-          title: t("common:toasts.something_went_wrong_while_creating_a_recipe"),
-          status: "error",
-          duration: 1500,
-          isClosable: true,
-        });
-      });
-  }), [
-    t,
-    toast,
-    createRecipe,
-  ]);
 
   return (
     <Section
       title={t("common:create_recipe.title")}
       headerButton={<HeaderBackButton />}
     >
-      <RecipeForm onSubmit={onSubmit} />
+      <RecipeForm
+        isLoading={loading}
+        onSubmit={createRecipe}
+      />
     </Section>
   );
 };

@@ -47,8 +47,8 @@ const UpdateRecipe: React.FC = () => {
           </Flex>
         ) : (
           <RecipeForm
-            isLoading={loadingUpdateRecipe}
             onSubmit={onSubmit}
+            isLoading={loadingUpdateRecipe}
             defaultValues={data}
           />
         )
