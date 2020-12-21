@@ -18,10 +18,19 @@
   "buttons": {
     "add": "Adicionar",
     "back": "Voltar",
-    "save": "Salvar"
+    "save": "Salvar",
+    "delete": "Deletar",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar"
   },
   "toasts": {
     "something_went_wrong_while_creating_a_recipe": "Algo de errado aconteceu ao criar uma receita",
     "recipe_successfully_created": "Receita criada com sucesso"
+  },
+  "modals": {
+    "delete_recipe": {
+      "title": "Deletar Receita",
+      "text": "Você tem certeza que deseja deletar a receita de {{recipeName}}?"
+    }
   }
 }
