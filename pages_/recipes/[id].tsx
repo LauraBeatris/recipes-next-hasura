@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
 import { useToast, Spinner, Flex } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
@@ -9,19 +9,15 @@ import Section from "components/Section";
 import RecipeForm from "components/RecipeForm";
 import HeaderBackButton from "components/HeaderBackButton";
 import { RecipeFormData } from "types/recipes";
-import GET_RECIPE_QUERY from "graphql/queries/getRecipe";
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import UPDATE_RECIPE_MUTATION from "graphql/mutations/updateRecipe";
 import { ROOT_PAGE_PATH } from "constants/routes";
+import useRecipe from "hooks/useRecipe";
 
 const UpdateRecipe: React.FC = () => {
   const { query } = useRouter();
 
-  const { data } = useQuery(GET_RECIPE_QUERY, {
-    variables: {
-      id: query.id,
-    },
-  });
+  const { data, loading: loadingRecipe } = useRecipe();
 
   const [updateRecipe] = useMutation(UPDATE_RECIPE_MUTATION, {
     refetchQueries: [
@@ -74,17 +70,20 @@ const UpdateRecipe: React.FC = () => {
       headerButton={<HeaderBackButton />}
     >
       {
-        data?.recipe ? (
-          <RecipeForm onSubmit={onSubmit} defaultValues={data.recipe} />
-        ) : (
+        loadingRecipe ? (
           <Flex
             width="100%"
-            justify="center"
             align="center"
+            justify="center"
             marginTop={40}
           >
             <Spinner color="blue.500" />
           </Flex>
+        ) : (
+          <RecipeForm
+            onSubmit={onSubmit}
+            defaultValues={data}
+          />
         )
       }
     </Section>
