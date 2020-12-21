@@ -8,12 +8,10 @@ import TextArea from "components/TextArea";
 import { RecipeFormData } from "types/recipes";
 import createRecipeSchema from "schemas/createRecipe";
 
-interface CreateRecipeForm {
-  onSubmit: (recipeData: RecipeFormData) => void;
-  defaultValues?: RecipeFormData
-}
+import { CreateRecipeForm } from "./types";
 
 const RecipeForm: React.FC<CreateRecipeForm> = ({
+  isLoading,
   onSubmit,
   defaultValues,
 }) => {
@@ -86,6 +84,7 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({
         color="white"
         type="submit"
         outline={0}
+        isLoading={isLoading}
         isDisabled={!formState.isValid}
       >
         {t("common:buttons.save")}
