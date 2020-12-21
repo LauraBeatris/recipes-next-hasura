@@ -1,14 +1,14 @@
 import { useMemo } from "react";
-import { QueryOptions, useQuery } from "@apollo/react-hooks";
+import { BaseQueryOptions, useQuery } from "@apollo/react-hooks";
 
 import GET_RECIPE_QUERY from "graphql/queries/getRecipe";
 
 /**
  * Hook that handles the query in order to get a recipe
  *
- * @param queryOptions The options of useQuery hook
+ * @param BaseQueryOptions The options of useQuery hook
  */
-const useRecipe = (queryOptions?: QueryOptions) => {
+const useRecipe = (queryOptions?: BaseQueryOptions) => {
   const { data, loading } = useQuery(GET_RECIPE_QUERY, queryOptions);
 
   const payload = useMemo(() => ({
