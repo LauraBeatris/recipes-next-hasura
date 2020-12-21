@@ -48,6 +48,7 @@ const Home: React.FC = () => {
           }) => (
             <Recipe
               id={id}
+              key={id}
               name={name}
               imageUrl={imageUrl}
             />
