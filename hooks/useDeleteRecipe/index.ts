@@ -10,7 +10,7 @@ import { UseDeleteRecipePayload } from "./types";
  *
  * @param mutationOptions The options of useMutation hook
  */
-const useDeleteRecipe = (mutationOptions: MutationHookOptions) => {
+const useDeleteRecipe = (mutationOptions?: MutationHookOptions) => {
   const [deleteRecipe, deleteRecipeResult] = useMutation(DELETE_RECIPE_MUTATION, mutationOptions);
 
   const handleDelete = useCallback((id: string) => {
