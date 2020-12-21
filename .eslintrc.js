@@ -1,5 +1,6 @@
 module.exports = {
   extends: [
+    "plugin:cypress/recommended",
     "@jungsoft/eslint-config/react",
     "plugin:@typescript-eslint/recommended",
   ],
@@ -16,12 +17,6 @@ module.exports = {
   },
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".tx", ".tsx"] }],
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      {
-        allowExpressions: true,
-      },
-    ],
     "no-unused-vars": 0,
     "@typescript-eslint/no-unused-vars": [2, {
       argsIgnorePattern: "^_",
@@ -38,6 +33,8 @@ module.exports = {
     "react/react-in-jsx-scope": 0,
     "react/jsx-props-no-spreading": 0,
     camelcase: 0,
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
   },
   settings: {
     "import/resolver": {
