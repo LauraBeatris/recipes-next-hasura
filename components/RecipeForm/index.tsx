@@ -32,49 +32,55 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack>
         <Input
+          ref={register}
           name="name"
           label={t("common:form.name")}
-          placeholder="Empadão de Camarão"
-          ref={register}
           error={errors?.name?.message}
+          placeholder="Empadão de Camarão"
+          data-testid="recipe-name-input"
         />
 
         <Input
+          ref={register}
           name="image_url"
           label={t("common:form.image_url")}
-          placeholder="https://www.budgetbads/2018/01231"
-          ref={register}
           error={errors?.image_url?.message}
+          placeholder="https://www.budgetbads/2018/01231"
+          data-testid="recipe-image-url-input"
         />
 
         <TextArea
+          ref={register}
           name="ingredients"
           label={t("common:form.ingredients")}
-          placeholder="Butter and salt"
-          ref={register}
           error={errors?.ingredients?.message}
+          placeholder="Butter and salt"
+          data-testid="recipe-ingredients-input"
         />
 
         <TextArea
+          ref={register}
           name="instructions"
           label={t("common:form.instructions")}
-          placeholder="Mix em' up"
-          ref={register}
           error={errors?.instructions?.message}
+          placeholder="Mix em' up"
+          data-testid="recipe-instructions-input"
         />
 
         <Input
+          ref={register}
           name="recipe_url"
           label={t("common:form.recipe_url")}
-          placeholder="www.tudogostoso/empadao-de-camarao"
-          ref={register}
           error={errors?.recipe_url?.message}
+          placeholder="www.tudogostoso/empadao-de-camarao"
+          data-testid="recipe-recipe-url-input"
         />
       </Stack>
 
       <Button
         backgroundColor="blue.400"
         justifyContent="center"
+        data-testid="save-recipe-button"
         alignItems="center"
         marginLeft="auto"
         marginTop={10}

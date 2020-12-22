@@ -1,0 +1,15 @@
+{
+  "name": "Shakshuka",
+  "image_url": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg",
+  "recipe_url": "https://downshiftology.com/recipes/shakshuka/",
+  "ingredients": "Some ingredients...",
+  "instructions": "Some instructions...",
+  "response": {
+    "data": {
+      "update_recipes_recipes_by_pk": {
+        "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415d",
+        "__typename": "recipes_recipes"
+      }
+    }
+  }
+}
