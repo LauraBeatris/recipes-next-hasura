@@ -6,8 +6,8 @@
     "dev": "next-translate && next dev",
     "build": "next-translate && next build",
     "start": "next start",
-    "test": "jest -c jest.config.js --watch",
-    "lint": "eslint ./ --ext=js,jsx"
+    "lint": "eslint ./ --ext=js,jsx",
+    "e2e-tests": "cypress run"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
