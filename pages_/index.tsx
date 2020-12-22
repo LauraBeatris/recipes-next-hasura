@@ -1,32 +1,10 @@
-import Link from "next-translate/Link";
-import { Spinner, Button, Flex } from "@chakra-ui/core";
+import { Spinner, Flex } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
 
-import { CREATE_RECIPE_PAGE_PATH } from "constants/routes";
 import Section from "components/Section";
 import Recipe from "components/Recipe";
 import useListRecipes from "hooks/useListRecipes";
-
-const HeaderButton: React.FC = () => {
-  const { t } = useTranslation();
-
-  return (
-    <Link href={CREATE_RECIPE_PAGE_PATH}>
-      <Button
-        color="blue.400"
-        display="flex"
-        outline={0}
-        padding={0}
-        variant="unstyled"
-        leftIcon="small-add"
-        alignItems="center"
-        justifyContent="center"
-      >
-        {t("common:buttons.add")}
-      </Button>
-    </Link>
-  );
-};
+import HeaderAddRecipeButton from "components/Buttons/HeaderAddRecipeButton";
 
 const Home: React.FC = () => {
   const { data, loading } = useListRecipes();
@@ -35,7 +13,7 @@ const Home: React.FC = () => {
   return (
     <Section
       title={t("common:home.title")}
-      headerButton={<HeaderButton />}
+      headerButton={<HeaderAddRecipeButton />}
     >
       {
         loading ? (

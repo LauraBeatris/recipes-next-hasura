@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 import Section from "components/Section";
 import RecipeForm from "components/RecipeForm";
-import HeaderBackButton from "components/HeaderBackButton";
+import HeaderBackButton from "components/Buttons/HeaderBackButton";
 import { RecipeFormData } from "types/recipes";
 import useRecipe from "hooks/useRecipe";
 import useUpdateRecipe from "hooks/useUpdateRecipe";

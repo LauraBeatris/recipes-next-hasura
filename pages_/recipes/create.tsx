@@ -2,7 +2,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import Section from "components/Section";
 import RecipeForm from "components/RecipeForm";
-import HeaderBackButton from "components/HeaderBackButton";
+import HeaderBackButton from "components/Buttons/HeaderBackButton";
 import useCreateRecipe from "hooks/useCreateRecipe";
 
 const CreateRecipe: React.FC = () => {
