@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 import Router from "next-translate/Router";
 
 import CREATE_RECIPE_MUTATION from "graphql/mutations/createRecipe";
-import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
+import LIST_RECIPES_QUERY, { ListRecipesQuery } from "graphql/queries/listRecipes";
 import { ROOT_PAGE_PATH } from "constants/routes";
 import { RecipeFormData } from "types/recipes";
 
@@ -18,11 +18,30 @@ import { UseCreateRecipePayload } from "./types";
  */
 const useCreateRecipe = (mutationOptions?: MutationHookOptions) => {
   const [createRecipe, createRecipeResult] = useMutation(CREATE_RECIPE_MUTATION, {
-    refetchQueries: [
-      {
+    update(cache, { data }) {
+      const newRecipeFromResponse = data.recipe;
+      const listRecipesQuery = cache.readQuery({
         query: LIST_RECIPES_QUERY,
-      },
-    ],
+      }) ?? [];
+
+      const { recipes } = listRecipesQuery as ListRecipesQuery;
+
+      const shouldUpdate = Boolean(recipes) && Boolean(newRecipeFromResponse);
+
+      if (!shouldUpdate) {
+        return;
+      }
+
+      cache.writeQuery({
+        query: LIST_RECIPES_QUERY,
+        data: {
+          recipes: [
+            ...recipes,
+            newRecipeFromResponse,
+          ],
+        },
+      });
+    },
     ...mutationOptions,
   });
 

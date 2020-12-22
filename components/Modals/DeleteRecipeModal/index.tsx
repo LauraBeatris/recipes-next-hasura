@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/core";
 import useTranslation from "next-translate/useTranslation";
 
-import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";
 import useDeleteRecipe from "hooks/useDeleteRecipe";
 
 import { DeleteRecipeModalProps } from "./types";
@@ -28,7 +27,6 @@ const DeleteRecipeModal: React.FC<DeleteRecipeModalProps> = ({
     { loading },
   ] = useDeleteRecipe({
     onCompleted: onClose,
-    refetchQueries: [{ query: LIST_RECIPES_QUERY }],
   });
 
   const handleConfirm = () => {
@@ -65,6 +63,7 @@ const DeleteRecipeModal: React.FC<DeleteRecipeModalProps> = ({
               variantColor="red"
               isLoading={loading}
               onClick={handleConfirm}
+              data-testid="delete-recipe-confirm-button"
             >
               {t("common:buttons.confirm")}
             </Button>

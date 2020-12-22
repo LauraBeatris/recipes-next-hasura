@@ -8,7 +8,7 @@
   },
   "response": {
     "data": {
-      "insert_recipes_recipes_one": {
+      "recipe": {
         "id": "7c631956-a0ce-470b-9836-d9b5301f3095"
       }
     }
