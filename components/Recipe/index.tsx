@@ -48,6 +48,7 @@ const Recipe: React.FC<RecipeProps> = ({
           height={220}
           maxWidth={233}
           position="relative"
+          data-testid={`recipe-${id}`}
           marginBottom={4}
         >
           <Image
@@ -83,6 +84,7 @@ const Recipe: React.FC<RecipeProps> = ({
 
             <IconButton
               variantColor="gray"
+              data-testid={`delete-recipe-button-${name}`}
               aria-label="Delete food"
               fontSize="lg"
               onClick={handleDelete}
