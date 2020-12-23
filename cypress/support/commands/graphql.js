@@ -20,7 +20,7 @@ const MAP_OPERATION_NAME_TO_ALIAS = {
   UpdateRecipe: "updateRecipeMutation",
 };
 
-Cypress.Commands.add("graphqlOperations", () => {
+Cypress.Commands.add("graphqlOperations", ({ hasUpdatedRecipe = false } = {}) => {
   cy.intercept(
     "POST",
     "/graphql",
@@ -29,8 +29,11 @@ Cypress.Commands.add("graphqlOperations", () => {
 
       req.alias = MAP_OPERATION_NAME_TO_ALIAS[operationName];
 
-      Cypress.log({ message: { operationName } });
-      Cypress.log({ message: { response: MAP_OPERATION_NAME_TO_MOCK[operationName] } });
+      if (operationName === "ListRecipes" && hasUpdatedRecipe) {
+        req.reply(updateRecipeMock.updatedRecipesListResponse);
+
+        return;
+      }
 
       if (MAP_OPERATION_NAME_TO_MOCK[operationName]) {
         req.reply(MAP_OPERATION_NAME_TO_MOCK[operationName]);

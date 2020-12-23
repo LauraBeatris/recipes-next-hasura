@@ -5,11 +5,8 @@ import createRecipeMock from "../fixtures/createRecipeMock.json";
 import updateRecipeMock from "../fixtures/updateRecipeMock.json";
 
 context("Recipes", () => {
-  beforeEach(() => {
-    cy.graphqlOperations();
-  });
-
   it("Should list recipes", () => {
+    cy.graphqlOperations();
     cy.visit(Cypress.env("baseUrl"));
 
     const {
@@ -22,12 +19,12 @@ context("Recipes", () => {
 
     cy.wait("@listRecipesQuery");
 
-    cy
-      .getByTestId("recipe")
-      .should("have.length", recipes.length);
+    cy.getByTestId("recipe").should("have.length", recipes.length);
   });
 
   it("Should create recipe", () => {
+    cy.graphqlOperations();
+
     cy.getByTestId("add-recipe-button").click();
 
     cy.fillForm(createRecipeMock.formData);
@@ -42,13 +39,14 @@ context("Recipes", () => {
       },
     } = createRecipeMock;
 
-    cy
-      .getByTestId(`recipe-${name}`)
-      .should("exist")
-      .wait("@createRecipeMutation");
+    cy.wait("@createRecipeMutation");
+
+    cy.getByTestId(`recipe-${name}`).should("exist");
   });
 
   it("Should delete recipe", () => {
+    cy.graphqlOperations();
+
     const {
       response: {
         body: {
@@ -65,13 +63,12 @@ context("Recipes", () => {
 
     cy.wait("@deleteRecipeMutation");
 
-    cy
-      .getByTestId(`recipe-${firstRecipeName}`)
-      .should("not.exist")
-      .wait("@deleteRecipeMutation");
+    cy.getByTestId(`recipe-${firstRecipeName}`).should("not.exist");
   });
 
   it("Should update recipe", () => {
+    cy.graphqlOperations({ hasUpdatedRecipe: true });
+
     const {
       response: {
         data: {
