@@ -1,23 +1,25 @@
 {
-  "body": {
-    "data": {
-      "recipes": [
-        {
-          "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415d",
-          "name": "Macarrão com queijo",
-          "image_url": "https://img.cybercook.com.br/receitas/61/macarrao-com-queijo.png",
-          "__typename": "recipes_recipes"
-        },
-        {
-          "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415e",
-          "name": "Macarrão com frango",
-          "image_url": "https://www.receitasnestle.com.br/images/default-source/recipes/macarrao_com_frango_e_milho_verde_alta.jpg",
-          "__typename": "recipes_recipes"
-        }
-      ]
+  "response": {
+    "body": {
+      "data": {
+        "recipes": [
+          {
+            "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415d",
+            "name": "Macarrão com queijo",
+            "image_url": "https://img.cybercook.com.br/receitas/61/macarrao-com-queijo.png",
+            "__typename": "recipes_recipes"
+          },
+          {
+            "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415e",
+            "name": "Macarrão com frango",
+            "image_url": "https://www.receitasnestle.com.br/images/default-source/recipes/macarrao_com_frango_e_milho_verde_alta.jpg",
+            "__typename": "recipes_recipes"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "access-control-allow-origin": "*"
     }
-  },
-  "headers": {
-    "access-control-allow-origin": "*"
   }
 }

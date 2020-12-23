@@ -1,38 +1,48 @@
 /// <reference types="cypress" />
 
+import recipesListMock from "../fixtures/recipesListMock.json";
+import createRecipeMock from "../fixtures/createRecipeMock.json";
+
 context("Recipes", () => {
+  beforeEach(() => {
+    cy.graphqlOperations();
+
+    cy.visit(Cypress.env("baseUrl"));
+  });
+
   it("Should list recipes", () => {
-    cy.fixture("recipesListMock.json").then((mockedData) => {
-      cy.listRecipesQuery(mockedData);
+    const {
+      response: {
+        body: {
+          data: { recipes },
+        },
+      },
+    } = recipesListMock;
 
-      cy.visit(Cypress.env("baseUrl"));
-
-      cy.wait("@listRecipesQuery");
-
-      const expectedListRecipesLength = mockedData.body.data.recipes.length;
-
-      cy.getByTestId("recipe").should("have.length", expectedListRecipesLength);
-    });
+    cy
+      .getByTestId("recipe")
+      .should("have.length", recipes.length)
+      .wait("@listRecipesQuery");
   });
 
   it("Should create recipe", () => {
-    cy.fixture("createRecipeMock.json").then((mockedData) => {
-      const { newListResponse, response, formData } = mockedData;
+    cy.getByTestId("add-recipe-button").click();
 
-      cy.listRecipesQuery(newListResponse);
-      cy.createRecipeMutation(response);
+    cy.fillForm(createRecipeMock.formData);
 
-      cy.getByTestId("add-recipe-button").click();
+    const {
+      response: {
+        data: {
+          recipe: {
+            id,
+          },
+        },
+      },
+    } = createRecipeMock;
 
-      cy.fillForm(formData);
-
-      cy.wait(["@listRecipesQuery", "@createRecipeMutation"]);
-
-      cy.getByTestId(`recipe-${response.data.insert_recipes_recipes_one.id}`).should("exist");
-
-      const newListRecipeExpectedLength = newListResponse.body.data.recipes.length;
-
-      cy.getByTestId("recipe").should("have.length", newListRecipeExpectedLength);
-    });
+    cy
+      .getByTestId(`recipe-${id}`)
+      .should("exist")
+      .wait("@createRecipeMutation");
   });
 });
