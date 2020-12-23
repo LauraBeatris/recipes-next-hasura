@@ -29,7 +29,8 @@ jobs:
           --data '{
             "context": "e2e",
             "state": "success",
-            "description": "Cypress tests passed"
+            "description": "Cypress tests passed",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
 
       - name: Cypress tests 🚨
@@ -42,5 +43,6 @@ jobs:
           --data '{
             "context": "e2e",
             "state": "failure",
-            "description": "Cypress tests failed"
+            "description": "Cypress tests failed",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }
