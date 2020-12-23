@@ -1,4 +1,4 @@
-name: ci
+name: E2E tests
 on: [deployment_status]
 
 jobs:
