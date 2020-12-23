@@ -36,4 +36,4 @@ pages
 # cypress
 cypress/videos
 cypress/screenshots
-cypress.json
+cypress.env.json
