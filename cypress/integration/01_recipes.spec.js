@@ -45,4 +45,25 @@ context("Recipes", () => {
       .should("exist")
       .wait("@createRecipeMutation");
   });
+
+  it("Should delete recipe", () => {
+    const {
+      response: {
+        body: {
+          data: { recipes },
+        },
+      },
+    } = recipesListMock;
+
+    const firstRecipeId = recipes[0].id;
+
+    cy.getByTestId(`delete-recipe-button-${firstRecipeId}`).click();
+
+    cy.getByTestId("delete-recipe-confirm-button").click();
+
+    cy
+      .getByTestId(`recipe-${firstRecipeId}`)
+      .should("not.exist")
+      .wait("@deleteRecipeMutation");
+  });
 });

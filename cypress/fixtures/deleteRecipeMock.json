@@ -1,0 +1,10 @@
+{
+  "response": {
+    "data": {
+      "recipe": {
+        "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415d",
+        "__typename": "recipes_recipes"
+      }
+    }
+  }
+}

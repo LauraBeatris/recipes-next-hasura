@@ -84,7 +84,7 @@ const Recipe: React.FC<RecipeProps> = ({
 
             <IconButton
               variantColor="gray"
-              data-testid={`delete-recipe-button-${name}`}
+              data-testid={`delete-recipe-button-${id}`}
               aria-label="Delete food"
               fontSize="lg"
               onClick={handleDelete}
