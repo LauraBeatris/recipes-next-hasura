@@ -7,7 +7,7 @@ import updateRecipeMock from "../fixtures/updateRecipeMock.json";
 context("Recipes", () => {
   it("Should list recipes", () => {
     cy.graphqlOperations();
-    cy.visit(Cypress.env("BASE_URL"));
+    cy.visit("/");
 
     const {
       response: {
