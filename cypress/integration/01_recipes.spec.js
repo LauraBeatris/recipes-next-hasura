@@ -2,15 +2,16 @@
 
 import recipesListMock from "../fixtures/recipesListMock.json";
 import createRecipeMock from "../fixtures/createRecipeMock.json";
+import updateRecipeMock from "../fixtures/updateRecipeMock.json";
 
 context("Recipes", () => {
   beforeEach(() => {
     cy.graphqlOperations();
-
-    cy.visit(Cypress.env("baseUrl"));
   });
 
   it("Should list recipes", () => {
+    cy.visit(Cypress.env("baseUrl"));
+
     const {
       response: {
         body: {
@@ -19,10 +20,11 @@ context("Recipes", () => {
       },
     } = recipesListMock;
 
+    cy.wait("@listRecipesQuery");
+
     cy
       .getByTestId("recipe")
-      .should("have.length", recipes.length)
-      .wait("@listRecipesQuery");
+      .should("have.length", recipes.length);
   });
 
   it("Should create recipe", () => {
@@ -34,14 +36,14 @@ context("Recipes", () => {
       response: {
         data: {
           recipe: {
-            id,
+            name,
           },
         },
       },
     } = createRecipeMock;
 
     cy
-      .getByTestId(`recipe-${id}`)
+      .getByTestId(`recipe-${name}`)
       .should("exist")
       .wait("@createRecipeMutation");
   });
@@ -55,15 +57,40 @@ context("Recipes", () => {
       },
     } = recipesListMock;
 
-    const firstRecipeId = recipes[0].id;
+    const firstRecipeName = recipes[0].name;
 
-    cy.getByTestId(`delete-recipe-button-${firstRecipeId}`).click();
+    cy.getByTestId(`delete-recipe-button-${firstRecipeName}`).click();
 
     cy.getByTestId("delete-recipe-confirm-button").click();
 
+    cy.wait("@deleteRecipeMutation");
+
     cy
-      .getByTestId(`recipe-${firstRecipeId}`)
+      .getByTestId(`recipe-${firstRecipeName}`)
       .should("not.exist")
       .wait("@deleteRecipeMutation");
+  });
+
+  it("Should update recipe", () => {
+    const {
+      response: {
+        data: {
+          recipe: {
+            name,
+          },
+        },
+      },
+    } = createRecipeMock;
+
+    cy.getByTestId(`recipe-${name}`).click();
+
+    cy.wait("@getRecipeQuery");
+
+    cy.fillForm(updateRecipeMock.formData);
+
+    cy
+      .getByTestId(`recipe-${updateRecipeMock.formData.name}`)
+      .should("exist")
+      .wait("@updateRecipeMutation");
   });
 });
