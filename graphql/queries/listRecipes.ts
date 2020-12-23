@@ -1,9 +1,15 @@
 import gql from "graphql-tag";
 
+import { Recipe } from "types/recipes";
+
+export interface ListRecipesQuery {
+  recipes: Pick<Recipe, "id" | "name" | "image_url">[];
+}
+
 const LIST_RECIPES_QUERY = gql`
-  query listRecipes {
+  query ListRecipes {
     recipes: recipes_recipes(order_by: {
-      updated_at: asc
+      updated_at: desc
     }) {
       id
       name

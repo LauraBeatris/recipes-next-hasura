@@ -1,7 +1,6 @@
-import React from "react";
 import { Flex, Text, useColorMode } from "@chakra-ui/core";
 
-import ToggleThemeButton from "components/ToggleThemeButton";
+import ToggleThemeButton from "components/Buttons/ToggleThemeButton";
 
 interface SectionProps {
   title: string;
