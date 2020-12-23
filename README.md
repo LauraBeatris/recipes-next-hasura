@@ -11,7 +11,7 @@
 [![Stars](https://img.shields.io/github/stars/LauraBeatris/recipes-next-hasura?color=191F2B&style=flat-square)](https://github.com/LauraBeatris/recipes-next-hasura/stargazers)
 [![Forks](https://img.shields.io/github/forks/LauraBeatris/recipes-next-hasura?color=%23191F2B&style=flat-square)](https://github.com/LauraBeatris/recipes-next-hasura/network/members)
 [![Contributors](https://img.shields.io/github/contributors/LauraBeatris/recipes-next-hasura?color=191F2B&style=flat-square)](https://github.com/LauraBeatris/recipes-next-hasura/graphs/contributors)
-[![recipes-next-hasura](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/zgo2ax&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/zgo2ax/runs)
+[![recipes-next-hasura](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/2ku8bu&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/2ku8bu/runs)
 
 <br />
 <p align="center">
