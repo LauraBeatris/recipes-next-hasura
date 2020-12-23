@@ -1,16 +1,19 @@
-name: E2E tests
-on: [push]
+name: E2E Tests
+on: [push, deployment, deployment_status]
 
 jobs:
-  cypress-run:
+  e2e:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Checkout 🛎
         uses: actions/checkout@v1
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          build: npm run build
-          start: npm run dev
-          wait-on: http://localhost:3000
+      - name: Run Cypress 🌲
+        uses: cypress-io/github-action@v2
+        env:
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
