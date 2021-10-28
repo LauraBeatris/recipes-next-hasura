@@ -1,4 +1,4 @@
-import { MutationResult } from "@apollo/react-hooks";
+import { MutationResult } from "@apollo/client";
 
 import { RecipeFormData } from "types/recipes";
 

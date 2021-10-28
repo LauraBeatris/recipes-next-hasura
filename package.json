@@ -10,16 +10,11 @@
     "e2e-tests": "cypress run"
   },
   "dependencies": {
-    "@apollo/react-hooks": "^4.0.0",
-    "@apollo/react-ssr": "^4.0.0",
+    "@apollo/client": "^3.4.16",
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@hookform/resolvers": "^0.1.0",
-    "apollo-cache-inmemory": "^1.6.6",
-    "apollo-client": "^2.6.10",
-    "apollo-link-context": "^1.0.20",
-    "apollo-link-http": "^1.5.17",
     "app-location": "^1.1.1",
     "cookie": "^0.4.1",
     "emotion-theming": "^10.0.27",

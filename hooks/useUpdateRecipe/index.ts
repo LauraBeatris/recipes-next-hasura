@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useToast } from "@chakra-ui/core";
-import { MutationHookOptions, useMutation } from "@apollo/react-hooks";
+import { MutationHookOptions, useMutation } from "@apollo/client";
 import useTranslation from "next-translate/useTranslation";
 import Router from "next-translate/Router";
 

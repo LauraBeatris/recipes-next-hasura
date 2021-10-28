@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { BaseQueryOptions, useQuery } from "@apollo/react-hooks";
+import { BaseQueryOptions, useQuery } from "@apollo/client";
 
 import GET_RECIPE_QUERY from "graphql/queries/getRecipe";
 
