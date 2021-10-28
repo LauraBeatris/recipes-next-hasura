@@ -1,16 +1,16 @@
 {
   "response": {
     "data": {
-      "update_recipes_recipes_by_pk": {
+      "update_recipes_by_pk": {
         "id": "caadc701-effb-480b-b3c4-cef33cb2532e",
-        "__typename": "recipes_recipes"
+        "__typename": "recipes"
       }
     }
   },
   "formData": {
     "name": "Hyper Mega Blaster Hot Dog",
-    "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hotdog-royalty-free-image-185123377-1562609410.jpg?crop=0.669xw:1.00xh;0.306xw,0&resize=640:*",
-    "recipe_url": "https://www.tudogostoso.com.br/receita/160242-hot-dog-caseirinho-r.html",
+    "imageURL": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hotdog-royalty-free-image-185123377-1562609410.jpg?crop=0.669xw:1.00xh;0.306xw,0&resize=640:*",
+    "recipeURL": "https://www.tudogostoso.com.br/receita/160242-hot-dog-caseirinho-r.html",
     "ingredients": "Butter and more salt",
     "instructions": "Mix it a lot"
   },
@@ -21,20 +21,20 @@
           {
             "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415d",
             "name": "Macarrão com queijo",
-            "image_url": "https://img.cybercook.com.br/receitas/61/macarrao-com-queijo.png",
-            "__typename": "recipes_recipes"
+            "imageURL": "https://img.cybercook.com.br/receitas/61/macarrao-com-queijo.png",
+            "__typename": "recipes"
           },
           {
             "id": "5c4e689a-a5d8-450e-a57c-1bc6cd7d415e",
             "name": "Macarrão com frango",
-            "image_url": "https://www.receitasnestle.com.br/images/default-source/recipes/macarrao_com_frango_e_milho_verde_alta.jpg",
-            "__typename": "recipes_recipes"
+            "imageURL": "https://www.receitasnestle.com.br/images/default-source/recipes/macarrao_com_frango_e_milho_verde_alta.jpg",
+            "__typename": "recipes"
           },
           {
             "id": "caadc701-effb-480b-b3c4-cef33cb2532e",
             "name": "Hyper Mega Blaster Hot Dog",
-            "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hotdog-royalty-free-image-185123377-1562609410.jpg?crop=0.669xw:1.00xh;0.306xw,0&resize=640:*",
-            "__typename": "recipes_recipes"
+            "imageURL": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hotdog-royalty-free-image-185123377-1562609410.jpg?crop=0.669xw:1.00xh;0.306xw,0&resize=640:*",
+            "__typename": "recipes"
           }
         ]
       }

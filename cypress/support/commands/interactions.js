@@ -5,7 +5,7 @@ Cypress.Commands.add("fillForm", recipeData => {
 
   cy.getByTestId("recipe-image-url-input").click();
   cy.getByTestId("recipe-image-url-input").clear();
-  cy.getByTestId("recipe-image-url-input").type(recipeData.image_url);
+  cy.getByTestId("recipe-image-url-input").type(recipeData.imageURL);
 
   cy.getByTestId("recipe-ingredients-input").click();
   cy.getByTestId("recipe-ingredients-input").clear();
@@ -17,7 +17,7 @@ Cypress.Commands.add("fillForm", recipeData => {
 
   cy.getByTestId("recipe-recipe-url-input").click();
   cy.getByTestId("recipe-recipe-url-input").clear();
-  cy.getByTestId("recipe-recipe-url-input").type(recipeData.recipe_url);
+  cy.getByTestId("recipe-recipe-url-input").type(recipeData.recipeURL);
 
   cy.getByTestId("save-recipe-button").click();
 });
