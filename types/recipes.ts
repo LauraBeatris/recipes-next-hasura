@@ -1,12 +1,12 @@
 export interface Recipe {
   id: string;
   name: string;
-  image_url: string;
-  created_at: string;
-  updated_at: string;
-  recipe_url: string;
+  imageURL: string;
+  createdAt: string;
+  updatedAt: string;
+  recipeURL: string;
   ingredients: string;
   instructions: string;
 }
 
-export type RecipeFormData = Omit<Recipe, "id" | "created_at" | "updated_at">;
+export type RecipeFormData = Omit<Recipe, "id" | "createdAt" | "updatedAt">;

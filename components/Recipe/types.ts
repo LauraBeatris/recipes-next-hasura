@@ -1,5 +1,5 @@
 import { Recipe } from "types/recipes";
 
 export interface RecipeProps extends Pick<Recipe, "id" | "name"> {
-  imageUrl: Recipe["image_url"];
+  imageUrl: Recipe["imageURL"];
 }

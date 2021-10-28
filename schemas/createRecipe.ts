@@ -16,12 +16,12 @@ const createRecipeSchema = Yup.object({
     Yup
       .string()
   ),
-  image_url: (
+  imageURL: (
     Yup
       .string()
       .required("You must provide the image URL")
   ),
-  recipe_url: (
+  recipeURL: (
     Yup
       .string()
       .required("You must provide the recipe URL")

@@ -42,9 +42,9 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({
 
         <Input
           ref={register}
-          name="image_url"
-          label={t("common:form.image_url")}
-          error={errors?.image_url?.message}
+          name="imageURL"
+          label={t("common:form.imageURL")}
+          error={errors?.imageURL?.message}
           placeholder="https://www.budgetbads/2018/01231"
           data-testid="recipe-image-url-input"
         />
@@ -69,9 +69,9 @@ const RecipeForm: React.FC<CreateRecipeForm> = ({
 
         <Input
           ref={register}
-          name="recipe_url"
-          label={t("common:form.recipe_url")}
-          error={errors?.recipe_url?.message}
+          name="recipeURL"
+          label={t("common:form.recipeURL")}
+          error={errors?.recipeURL?.message}
           placeholder="www.tudogostoso/empadao-de-camarao"
           data-testid="recipe-recipe-url-input"
         />
