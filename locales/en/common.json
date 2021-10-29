@@ -10,8 +10,8 @@
   },
   "form": {
     "name": "Name",
-    "image_url": "Image URL",
-    "recipe_url": "Recipe URL",
+    "imageURL": "Image URL",
+    "recipeURL": "Recipe URL",
     "ingredients": "Ingredients",
     "instructions": "Instructions"
   },

@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { MutationHookOptions, useMutation } from "@apollo/react-hooks";
+import { MutationHookOptions, useMutation } from "@apollo/client";
 
 import DELETE_RECIPE_MUTATION from "graphql/mutations/deleteRecipe";
 import LIST_RECIPES_QUERY, { ListRecipesQuery } from "graphql/queries/listRecipes";

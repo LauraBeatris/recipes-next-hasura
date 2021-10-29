@@ -1,4 +1,4 @@
-import { QueryOptions, useQuery } from "@apollo/react-hooks";
+import { QueryOptions, useQuery } from "@apollo/client";
 import { useMemo } from "react";
 
 import LIST_RECIPES_QUERY from "graphql/queries/listRecipes";

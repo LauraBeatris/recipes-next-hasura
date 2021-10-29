@@ -29,7 +29,7 @@ const Home: React.FC = () => {
           data.map(({
             id,
             name,
-            image_url: imageUrl,
+            imageURL: imageUrl,
           }) => (
             <Recipe
               id={id}
